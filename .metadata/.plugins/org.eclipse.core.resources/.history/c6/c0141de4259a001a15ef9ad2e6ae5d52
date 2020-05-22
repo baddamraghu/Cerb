@@ -1,0 +1,32 @@
+package cerbApplication.Cerb;
+
+import java.io.IOException;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pageObject.LandingPage;
+import pageObject.SecondPage;
+import resources.BrowserInitiation;
+
+public class TestCases extends BrowserInitiation {
+	
+	@BeforeTest
+	public void startApplicationTest() throws IOException
+	{
+		driver=base();
+		driver.get(prop.getProperty("url"));
+		LandingPage lp=new LandingPage(driver);
+		lp.startApplication().click();
+		
+
+	}
+@Test 
+
+public void dateselect(){
+	SecondPage sp= new SecondPage(driver);
+	sp.radioBtn().click();
+	sp.dateSelection().click();
+	sp.monthSelection().click();
+}
+}

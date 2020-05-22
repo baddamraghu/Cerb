@@ -1,0 +1,53 @@
+package pageObject;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class SecondPage {
+	
+	WebDriver driver;
+	public SecondPage(WebDriver driver) {
+		this.driver = driver;
+		
+	}
+		By header = By.xpath("//h1[@class='wds-c-page-header__title']");
+		By radio = By.xpath("//input[@id='component-unique-id-150']");
+		By date = By.id("root_3896739577582321664_Person.employmentIncomeLostDate-right-addon");
+		By month = By.xpath("//select[@class='flatpickr-monthDropdown-months']");
+		By year = By.xpath("//input[@class='numInput cur-year']");
+		By day = By.xpath("//div[@class='dayContainer']");
+		By continuebtn = By.id("apply-for-benefits-ieg-form-button-next");
+		public WebElement headertitle() {
+		return	driver.findElement(header);
+		
+		}
+		public WebElement radioBtn() {
+			return	driver.findElement(radio);
+			
+			}
+			
+		public WebElement dateSelection() {
+			return	driver.findElement(date);
+			
+			}	
+		public List<WebElement> monthSelection() {
+				List<WebElement> m=driver.findElements(month);
+				return m;
+			}	
+		public List<WebElement> yearSelection() {
+			List<WebElement> y=driver.findElements(year);
+			return y;
+			
+			}	
+		public List<WebElement> daySelection() {
+				List <WebElement> d=driver.findElements(day);
+				return d;
+			}
+		public WebElement continuebutton() {
+			return	driver.findElement(continuebtn);
+			
+			}
+}

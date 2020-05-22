@@ -1,0 +1,25 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class FourthPage {
+
+		public WebDriver driver;
+		public FourthPage(WebDriver driver) {
+			this.driver = driver;
+			
+}
+		By add= By.xpath("//input[@id='downshift-0-input']");
+		By unit = By.xpath("//input[@id='root_-7416302686372364288_ResidentialAddress.suiteNum']");
+		By street = By.xpath("//input[@id='root_-7416302686372364288_ResidentialAddress.addressLine1']");
+		By city = By.xpath("//input[@id='root_-7416302686372364288_ResidentialAddress.city']");
+		By province= By.xpath("//select[@id='root_-7416302686372364288_ResidentialAddress.province']");
+		By poastal = By.xpath("//input[@id='root_-7416302686372364288_ResidentialAddress.postalCode']");
+		By primaryPhno = By.xpath("//input[@id='root_-2732559073907048448_ContactInformation.primaryPhoneNumberRaw']");
+		By secondaryphno = By.xpath("//input[@id='root_-2732559073907048448_ContactInformation.secondaryPhoneNumberRaw']");
+		By tty = By.xpath("//input[@id='root_77687093572141056_ContactInformation.teletypewriterNumberRaw']");
+		By radio = By.xpath("//input[@id='component-unique-id-234']");
+		By radio1= By.xpath("//input[@id='component-unique-id-238']");
+		By continuebtn = By.xpath("//button[@id='apply-for-benefits-ieg-form-button-next']");
+}

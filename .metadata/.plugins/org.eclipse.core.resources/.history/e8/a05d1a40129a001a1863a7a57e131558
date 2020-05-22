@@ -1,0 +1,22 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class SecondPage {
+	WebDriver driver;
+	public SecondPage(WebDriver driver) {
+		this.driver = driver;
+		
+	}
+		By header = By.xpath("//h1[@class='wds-c-page-header__title']");
+		
+		public WebElement header() {
+		return	driver.findElement(header);
+		}
+		
+		
+	
+
+}

@@ -1,0 +1,17 @@
+Feature:  HomePage
+
+@tag
+Scenario: Positive test validating start application
+Given initialize the browser with chrome and navigate to "https://foxdemo-standalone.eastus.cloudapp.azure.com/CE/cerb" Site
+Given  click the start application button and navigate to next page
+When User selects one of the impacts and selects date and click on continue button
+Then Verify that user is succesfully navigated to next page
+
+@tag1
+Scenario: Positive test validating user details
+Given Go to user details page of the Application
+When user enters "Brain "  and "Chakori" and "1986/01/01 " and "552 132 854" 
+And clicks on continue button
+Then verify user is successfully entered the details
+
+

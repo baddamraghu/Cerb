@@ -1,0 +1,10 @@
+package pageObject;
+
+public class LandingPage {
+	WebElement driver;
+	Public void LandingPage(driver)
+	{
+		this.driver=driver;
+	}
+
+}

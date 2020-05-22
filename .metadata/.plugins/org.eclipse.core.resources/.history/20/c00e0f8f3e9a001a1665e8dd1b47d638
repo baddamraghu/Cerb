@@ -1,0 +1,54 @@
+package cerbApplication.Cerb;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pageObject.LandingPage;
+import pageObject.SecondPage;
+import resources.BrowserInitiation;
+
+public class TestCases extends BrowserInitiation {
+	
+	@BeforeTest
+	public void startApplicationTest() throws IOException
+	{
+		driver=base();
+		driver.get(prop.getProperty("url"));
+		LandingPage lp=new LandingPage(driver);
+		lp.startApplication().click();
+		
+}
+@Test 
+
+public void dateselect() throws InterruptedException{
+
+	SecondPage sp= new SecondPage(driver);
+	Thread.sleep(5000);
+	sp.radioBtn().click();
+	sp.dateSelection().click();
+	Thread.sleep(5000);
+Select s=new Select(sp.monthSelection());
+		
+		s.selectByValue("2");
+	
+
+	List<WebElement>a = sp.daySelection();
+	for(WebElement ele:a) {
+		 String datetext=ele.getText();
+		 String date[]=datetext.split("/n");
+		if(date[1].equals(25)) {
+			ele.click();
+			//Thread.sleep(5000);
+			break;
+		//}
+	//}
+	
+}
+}

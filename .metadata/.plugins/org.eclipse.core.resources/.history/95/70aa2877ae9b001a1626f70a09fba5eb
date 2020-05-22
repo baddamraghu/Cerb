@@ -1,0 +1,16 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class SixthPage {
+	
+	public WebDriver driver;
+		public SixthPage(WebDriver driver) {
+			this.driver = driver;
+			}
+		By transit = By.xpath("//input[@id='root_7715792061592502272_Person.bankBranchNum']");
+		By financeNo = By.xpath("//input[@id='root_7715792061592502272_Person.bankInstNum']");
+		By accountNo=By.xpath("//input[@id='root_7715792061592502272_Person.bankAcctNum']");
+
+}

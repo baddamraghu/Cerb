@@ -1,0 +1,106 @@
+package stepDefination;
+
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.And;
+import cucumber.api.junit.Cucumber;
+import pageObject.LandingPage;
+import pageObject.SecondPage;
+import pageObject.ThirdPage;
+import resources.BrowserInitiation;
+
+import org.junit.runner.RunWith;
+import org.openqa.selenium.support.ui.Select;
+
+@RunWith(Cucumber.class)
+public class stepDefination extends BrowserInitiation {
+
+    @Given("^initialize the browser with chrome and navigate to \"([^\"]*)\" Site$")
+    public void initialize_the_browser_with_chrome_and_navigate_to_something_site(String strArg1) throws Throwable {
+       driver=base();
+       driver.get(strArg1);
+      
+    }
+    @Given("^click the start application button and navigate to next page$")
+    public void click_the_start_application_button_and_navigate_to_next_page() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+    	LandingPage lp=new LandingPage(driver);
+        lp.startApplication().click();
+    }
+
+   
+
+
+    @When("^User selects one of the impacts and selects date and click on continue button$")
+    public void user_selects_one_of_the_impacts_and_selects_date_and_click_on_continue_button() throws Throwable {
+
+    	SecondPage sp= new SecondPage(driver);
+    	Thread.sleep(5000);
+    	sp.radioBtn().click();
+    	sp.dateSelection().click();
+    			
+    Select s=new Select(sp.monthSelection());
+    		
+    		s.selectByValue("2");
+    	
+
+    	
+    		int count=sp.daySelection().size();
+    		
+    		for(int i=0;i<count;i++)
+    		{
+    		String text=sp.daySelection().get(i).getText();
+    		
+    		if(text.equalsIgnoreCase("23"))
+    		{
+    		sp.daySelection().get(i).click();
+    		break;
+    		}
+
+    		}
+    		
+    		sp.continuebutton().click();
+    		
+    		}
+    
+     @Then("^Verify that user is succesfully navigated to next page$")
+    public void verify_that_user_is_succesfully_navigated_to_next_page() throws Throwable {
+        
+    }
+    
+     @Given("^Go to user details page of the Application$")
+     public void go_to_user_details_page_of_the_application() throws Throwable {
+         
+     }
+
+
+     @When("^user enters \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
+     public void user_enters_and_and_and(String arg1, String arg2, String arg3, String arg4) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+     
+         
+    	 ThirdPage tp=new ThirdPage(driver);
+    	 tp.firstName().sendKeys(arg1);
+    	 tp.secondName().sendKeys(arg2);
+    	 tp.dateOfBirth().sendKeys(arg3);
+    	 tp.sinNumber().sendKeys(arg4);
+    	 
+         
+     }
+
+     @Then("^verify user is successfully entered the details$")
+     public void verify_user_is_successfully_entered_the_details() throws Throwable {
+         
+     }
+
+     @And("^clicks on continue button$")
+     public void clicks_on_continue_button() throws Throwable {
+    	 
+    	 ThirdPage tp=new ThirdPage(driver);
+    	 tp.continueBtn().click();
+     }
+
+ }
+    

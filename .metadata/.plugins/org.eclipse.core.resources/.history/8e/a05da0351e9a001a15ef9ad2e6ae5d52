@@ -1,0 +1,32 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class SecondPage {
+	WebDriver driver;
+	public SecondPage(WebDriver driver) {
+		this.driver = driver;
+		
+	}
+		By header = By.xpath("//h1[@class='wds-c-page-header__title']");
+		By radio = By.id("component-unique-id-11");
+		By date = By.id("root_3896739577582321664_Person.employmentIncomeLostDate-right-addon");
+		
+		public WebElement headertitle() {
+		return	driver.findElement(header);
+		
+		}
+		public WebElement radiobtn() {
+			return	driver.findElement(radio);
+			
+			}
+			
+		public WebElement date() {
+			return	driver.findElement(date);
+			
+			}	
+	
+
+}

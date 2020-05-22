@@ -1,0 +1,12 @@
+Feature:  HomePage
+
+
+Scenario: Positive test validating start application
+Given initialize the browser with chrome
+And Navigate to "https://foxdemo-standalone.eastus.cloudapp.azure.com/CE/cerb" Site
+
+When User clicks the start application button and navigates to next page
+Then Verify that user is succesfully navigated
+
+
+

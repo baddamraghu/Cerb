@@ -1,0 +1,45 @@
+package stepDefination;
+
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.And;
+import cucumber.api.junit.Cucumber;
+import pageObject.LandingPage;
+import pageObject.SecondPage;
+import resources.BrowserInitiation;
+
+import org.junit.runner.RunWith;
+import org.testng.Assert;
+
+@RunWith(Cucumber.class)
+public class stepDefination extends BrowserInitiation{
+
+    @Given("^initialize the browser with chrome$")
+    public void initialize_the_browser_with_chrome() throws Throwable {
+    	driver=base();
+			
+  
+    }
+    @And("^Navigate to \"([^\"]*)\" Site$")
+    public void navigate_to_something_site(String strArg1) throws Throwable {
+        driver.get(strArg1);
+    }
+
+
+    @When("^User clicks the start application button and navigates to next page$")
+    public void user_clicks_the_start_application_button_and_navigates_to_next_page() throws Throwable {
+    	LandingPage lp=new LandingPage(driver);
+		lp.startApplication().click();
+    }
+
+    @Then("^Verify that user is succesfully navigated$")
+    public void verify_that_user_is_succesfully_navigated() throws Throwable {
+       SecondPage sp=new SecondPage(driver);
+       Assert.assertEquals(sp.headertitle(),"Let's start with your situation");
+    		   
+    }
+
+   
+}

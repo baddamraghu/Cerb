@@ -1,0 +1,23 @@
+package cerbApplication.Cerb;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import pageObject.LandingPage;
+import resources.BrowserInitiation;
+
+public class TestCases extends BrowserInitiation {
+	
+	@Test
+	public void startApplicationTest() throws IOException
+	{
+		driver=base();
+		driver.get(prop.getProperty("url"));
+		LandingPage lp=new LandingPage(driver);
+		lp.startApplication().click();
+		
+
+	}
+
+}

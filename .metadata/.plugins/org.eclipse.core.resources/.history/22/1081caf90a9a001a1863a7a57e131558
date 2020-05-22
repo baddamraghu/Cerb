@@ -1,0 +1,17 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LandingPage {
+	WebDriver driver;
+	LandingPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	By homeButton=By.xpath("//a[contains(text(),'Home')]");
+	public void home{
+		return driver.findElement(homeButton);
+	}
+
+}

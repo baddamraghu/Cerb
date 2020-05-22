@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;E2EProject/NewFile.xml&apos; to &apos;cucumberTestNg.xml&apos;" description="Rename resource &apos;NewFile.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="NewFile.xml" name="cucumberTestNg.xml" stamp="1589913691429" updateReferences="true"/>
+</session>

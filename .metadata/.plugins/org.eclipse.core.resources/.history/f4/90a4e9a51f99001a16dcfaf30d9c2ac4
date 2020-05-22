@@ -1,0 +1,42 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginPage {
+
+	public WebDriver d;
+
+	public LoginPage(WebDriver d) {
+		this.d=d;
+	}
+	
+	
+	By email = By.id("user_email");
+	By pwd = By.id("user_password");
+	By signin = By.xpath("//input[@name='commit']");
+	By ForgotPass=By.xpath("//a[@class='link-below-button']");
+	
+	
+
+public WebElement email(){
+	return d.findElement(email);
+}
+public WebElement pwd(){
+	return d.findElement(pwd);
+}
+public WebElement signin(){
+	return d.findElement(signin);
+	
+}
+public ForgotPassword fPassword(){
+	d.findElement(ForgotPass).click();
+	
+	ForgotPassword fp=new ForgotPassword(d);
+	return fp;
+	
+}
+}
+
+

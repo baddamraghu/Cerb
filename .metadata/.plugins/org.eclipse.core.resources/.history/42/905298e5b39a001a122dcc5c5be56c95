@@ -1,0 +1,66 @@
+package cerbApplication.Cerb;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pageObject.LandingPage;
+import pageObject.SecondPage;
+import resources.BrowserInitiation;
+
+public class TestCases extends BrowserInitiation {
+	
+	@BeforeTest
+	public void startApplicationTest() throws IOException
+	{
+		driver=base();
+		driver.get(prop.getProperty("url"));
+		LandingPage lp=new LandingPage(driver);
+		lp.startApplication().click();
+		
+}
+@Test 
+
+public void dateselect() throws InterruptedException{
+
+	SecondPage sp= new SecondPage(driver);
+	Thread.sleep(5000);
+	sp.radioBtn().click();
+	WebDriverWait wait = new WebDriverWait(driver,30);
+	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root_-3020789450058760192_Person.employmentIncomeLostDate\"]"))).click();
+		
+
+	//sp.dateSelection().click();
+	
+Select s=new Select(sp.monthSelection());
+		
+		s.selectByValue("2");
+	
+
+		List<WebElement> dates= sp.daySelection();		//Grab common attribute//Put into list and iterate
+		int count=sp.daySelection().size();
+		System.out.println(count);
+
+		for(int i=0;i<count;i++)
+		{
+		String text=sp.daySelection().get(i).getText();
+		System.out.println(text);
+		if(text.equalsIgnoreCase("21"))
+		{
+		sp.daySelection().get(i).click();
+		break;
+		}
+
+		}
+		}
+}
+
+

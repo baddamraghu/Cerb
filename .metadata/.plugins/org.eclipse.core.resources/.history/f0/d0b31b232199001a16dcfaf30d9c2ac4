@@ -1,0 +1,38 @@
+package pageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Landingpage {
+	
+	public WebDriver d;
+
+	public Landingpage(WebDriver d) {
+		this.d=d;
+	}
+	
+	By Login=By.xpath("//span[contains(text(),'Login')]");
+	By title = By.xpath("//h2[contains(text(),'Featured Courses')]");
+	By navbar = By.xpath("//ul[@class='nav navbar-nav navbar-right']");
+	By stat = By.xpath("//h3[contains(text(),'An Academy to learn Everything about Testing')]");
+	
+	
+public LoginPage userlogin(){
+	d.findElement(Login).click();
+	LoginPage ab = new LoginPage(d);
+	return ab;
+	
+	
+}
+public WebElement title(){
+	return d.findElement(title);
+}
+public WebElement navigation(){
+	return d.findElement(navbar);
+	
+}
+public WebElement statement(){
+	return d.findElement(stat);
+}
+}
